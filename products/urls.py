@@ -1,7 +1,8 @@
-from django.contrib import admin
 from django.urls import path
-import products.views
+from . import views
 
 urlpatterns = [
-	path('', products.views.home, name='home'),
+	path('create', views.create, name='create'),
+	path('<int:product_id>/', views.detail, name='detail'),
+	path('<int:product_id>/upvote', views.upvote, name='upvote'),
 ]
